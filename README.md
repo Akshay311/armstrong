@@ -3,22 +3,24 @@ Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Database changed
-**mysql> show tables;
+```
+mysql> show tables;
 +-------------------+
 | Tables_in_join_db |
 +-------------------+
 | dept              |
 | emp               |
 +-------------------+
-2 rows in set (0.00 sec)**
+2 rows in set (0.00 sec)
+```
 
 ## INNER JOIN :
 ```
-mysql> select * from emp;                                       mysql> select * from dept;
-+--------+----------+------+--------+---------+                 +---------+-----------------+
+mysql> select * from emp;                                                       mysql> select * from dept;
++--------+----------+------+--------+---------+                                 +---------+-----------------+
 | emp_id | emp_name | age  | salary | dept_id |					| dept_id | dept_name       |
 +--------+----------+------+--------+---------+					+---------+-----------------+
-|      1 | akash    |   24 |  20000 |       5 |                 |       1 | Administration  |
+|      1 | akash    |   24 |  20000 |       5 |                		        |       1 | Administration  |
 |      2 | aniket   |   25 |  21000 |       5 |					|       2 | Human Resources |
 |      3 | akshay   |   23 |  19000 |       6 |					|       3 | IT              |
 |      4 | amit     |   25 |  21000 |       5 |					|       4 | Purchasing      |
@@ -39,11 +41,9 @@ mysql> select * from emp;                                       mysql> select * 
 +--------+----------+------+--------+---------+
 18 rows in set (0.00 sec)
 ```
-```
-mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
-    -> JOIN dept
-    -> ON emp.dept_id=dept.dept_id;
-```
+**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
+         JOIN dept
+         ON emp.dept_id=dept.dept_id;**
 
 ```	
 +----+--------+--------+-----------------+
@@ -95,9 +95,11 @@ mysql> select * from emp;                                       mysql> select * 
 +--------+----------+------+--------+---------+
 18 rows in set (0.00 sec)
 ```
-```
-mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp LEFT JOIN dept ON emp.dept_id=dept.dept_id;
-```
+
+**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp 
+         LEFT JOIN dept
+	 ON emp.dept_id=dept.dept_id;**
+
 ```
 	
 +----+---------+--------+-----------------+
@@ -128,11 +130,11 @@ mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.de
 
 ## RIGHT JOIN :
 ```
-mysql> select * from emp;                                       mysql> select * from dept;
-+--------+----------+------+--------+---------+                 +---------+-----------------+
+mysql> select * from emp;							mysql> select * from dept;
++--------+----------+------+--------+---------+                			+---------+-----------------+
 | emp_id | emp_name | age  | salary | dept_id |					| dept_id | dept_name       |
 +--------+----------+------+--------+---------+					+---------+-----------------+
-|      1 | akash    |   24 |  20000 |       5 |                 |       1 | Administration  |
+|      1 | akash    |   24 |  20000 |       5 |                			|       1 | Administration  |
 |      2 | aniket   |   25 |  21000 |       5 |					|       2 | Human Resources |
 |      3 | akshay   |   23 |  19000 |       6 |					|       3 | IT              |
 |      4 | amit     |   25 |  21000 |       5 |					|       4 | Purchasing      |
@@ -153,9 +155,11 @@ mysql> select * from emp;                                       mysql> select * 
 +--------+----------+------+--------+---------+
 18 rows in set (0.00 sec)
 ```
-```
-mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp RIGHT JOIN dept ON emp.dept_id=dept.dept_id ;
-```
+
+**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp 
+	 RIGHT JOIN dept 
+	 ON emp.dept_id=dept.dept_id ;**
+
 ```	
 +------+--------+--------+-----------------+
 | ID   | Name   | Salary | Department      |
@@ -182,11 +186,11 @@ mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.de
 ```
 ## FULL OUTER JOIN :
 ```
-mysql> select * from emp;                                       mysql> select * from dept;
-+--------+----------+------+--------+---------+                 +---------+-----------------+
+mysql> select * from emp;                                       		mysql> select * from dept;
++--------+----------+------+--------+---------+                 		+---------+-----------------+
 | emp_id | emp_name | age  | salary | dept_id |					| dept_id | dept_name       |
 +--------+----------+------+--------+---------+					+---------+-----------------+
-|      1 | akash    |   24 |  20000 |       5 |                 |       1 | Administration  |
+|      1 | akash    |   24 |  20000 |       5 |                 		|       1 | Administration  |
 |      2 | aniket   |   25 |  21000 |       5 |					|       2 | Human Resources |
 |      3 | akshay   |   23 |  19000 |       6 |					|       3 | IT              |
 |      4 | amit     |   25 |  21000 |       5 |					|       4 | Purchasing      |
@@ -207,11 +211,15 @@ mysql> select * from emp;                                       mysql> select * 
 +--------+----------+------+--------+---------+
 18 rows in set (0.00 sec)
 ```
-```
-mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp LEFT JOIN dept ON emp.dept_id=dept.dept_id
-    -> UNION ALL
-    -> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp RIGHT JOIN dept ON emp.dept_id=dept.dept_id;
-```	
+**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
+         LEFT JOIN dept 
+	 ON emp.dept_id=dept.dept_id
+       
+         UNION ALL
+         SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
+	 RIGHT JOIN dept 
+	 ON emp.dept_id=dept.dept_id;**
+	
 ```	
 +------+---------+--------+-----------------+
 | ID   | Name    | Salary | Department      |
