@@ -36,9 +36,9 @@ mysql> select * from emp;                                                       
 +--------+----------+------+--------+---------+
 18 rows in set (0.00 sec)
 ```
-**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
+```mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
          JOIN dept
-         ON emp.dept_id=dept.dept_id;**
+         ON emp.dept_id=dept.dept_id;```
 
 ```	
 +----+--------+--------+-----------------+
@@ -91,9 +91,9 @@ mysql> select * from emp;                                       		mysql> select 
 18 rows in set (0.00 sec)
 ```
 
-**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp 
+```mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp 
          LEFT JOIN dept
-	 ON emp.dept_id=dept.dept_id;**
+	 ON emp.dept_id=dept.dept_id;```
 
 ```
 	
@@ -151,9 +151,9 @@ mysql> select * from emp;							mysql> select * from dept;
 18 rows in set (0.00 sec)
 ```
 
-**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp 
+```mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp 
 	 RIGHT JOIN dept 
-	 ON emp.dept_id=dept.dept_id ;**
+	 ON emp.dept_id=dept.dept_id ;```
 
 ```	
 +------+--------+--------+-----------------+
@@ -206,13 +206,13 @@ mysql> select * from emp;                                       		mysql> select 
 +--------+----------+------+--------+---------+
 18 rows in set (0.00 sec)
 ```
-**mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
+```mysql> SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
          LEFT JOIN dept 
 	 ON emp.dept_id=dept.dept_id
        UNION ALL
          SELECT emp.emp_id as ID,emp.emp_name as Name,emp.salary as Salary,dept.dept_name as Department FROM emp
 	 RIGHT JOIN dept 
-	 ON emp.dept_id=dept.dept_id;**
+	 ON emp.dept_id=dept.dept_id;```
 	 
 	
 ```	
